@@ -89,3 +89,77 @@
           <div id="listingsArea" style="margin-top:10px;max-height:320px;overflow:auto"></div>
         </div>
       </div>
+            <!-- RIGHT: Stats + Chart + Estimator -->
+      <aside class="right-col">
+        <div class="card" aria-labelledby="stats-title">
+          <div class="section-title">
+            <strong id="stats-title">Price Aggregates</strong>
+            <div class="muted">Averages from submitted reports</div>
+          </div>
+
+          <div class="stat">
+            <div>
+              <div class="big" id="avgPrice">—</div>
+              <div class="muted">Average price (selected crop)</div>
+            </div>
+            <div style="text-align:right">
+              <label for="selectCrop">Crop</label>
+              <select id="selectCrop" style="min-width:140px">
+                <option value="">— select crop —</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="chart-wrap card" style="padding:10px;margin-top:8px;">
+            <canvas id="priceChart" aria-label="price history" role="img"></canvas>
+          </div>
+
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center;">
+            <button class="small" id="refreshAgg">Refresh</button>
+            <button class="ghost small" id="shareAvg">Share Text</button>
+            <div style="flex:1"></div>
+            <div class="muted" id="reportsCount">Reports: 0</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px" aria-labelledby="est-title">
+          <div class="section-title">
+            <strong id="est-title">Transport Cost Estimator</strong>
+            <div class="muted">Quick estimate</div>
+          </div>
+
+          <label for="distance">Distance (km)</label>
+          <input id="distance" type="number" min="0" placeholder="e.g., 25" />
+
+          <label for="rate">Rate (ETB per km)</label>
+          <input id="rate" type="number" min="0" value="5" />
+
+          <label for="weight">Weight (kg)</label>
+          <input id="weight" type="number" min="0" placeholder="e.g., 1000" />
+
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button id="calcTransport" class="small">Calculate</button>
+            <button id="resetEstimator" class="ghost small">Reset</button>
+          </div>
+
+          <div style="margin-top:10px">
+            <div class="muted">Estimated cost: <span id="transportResult">—</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title">
+            <strong>Data & Privacy</strong>
+            <div class="muted">Local demo — data stays in your browser</div>
+          </div>
+          <p class="muted" style="font-size:13px">This application stores market reports and listings locally (browser localStorage). Share with other farmers by exporting CSV or copying generated contact messages. For production, central aggregation and verification are recommended.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Chart.js from CDN for simple charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
