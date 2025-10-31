@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AgriMarket Connect — Local Market Prices & Listings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo">Ag</div>
+      <div>
+        <h1>AgriMarket Connect</h1>
+        <p class="lead">Local market prices, farmer listings and transport estimator — frontend demo (works offline)</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT: Forms + Listings + Price Reporting -->
+      <div>
+        <div class="card" aria-labelledby="report-title">
+          <div class="section-title">
+            <strong id="report-title">Report Local Price</strong>
+            <span class="help">Data stored in your browser (local)</span>
+          </div>
+
+          <!-- Price Report Form -->
+          <div id="price-report-form">
+            <label for="crop">Crop / Product</label>
+            <input id="crop" type="text" placeholder="e.g., Maize, Teff, Coffee" />
+
+            <div class="form-row grid-2">
+              <div>
+                <label for="price">Price (ETB per kg)</label>
+                <input id="price" type="number" min="0" step="0.1" placeholder="e.g., 12.50" />
+              </div>
+              <div>
+                <label for="market">Market / Town</label>
+                <input id="market" type="text" placeholder="e.g., Addis Ababa - Merkato" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="note">Optional note (quality, packaging)</label>
+              <input id="note" type="text" placeholder="Fair trade, grade A, moisture 12%" />
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:8px;">
+              <button id="submitPrice">Submit Price</button>
+              <button class="ghost small" id="exportPrices">Export CSV</button>
+              <button class="ghost small" id="clearData">Clear Local Data</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Listings (farmer offers) -->
+        <div class="card" aria-labelledby="list-title" style="margin-top:14px;">
+          <div class="section-title">
+            <strong id="list-title">Post Produce Listing</strong>
+            <span class="help">Buyers can contact you via generated message</span>
+          </div>
+
+          <label for="list-crop">Crop</label>
+          <input id="list-crop" placeholder="e.g., Teff" />
+
+          <div class="form-row grid-2">
+            <div>
+              <label for="qty">Quantity (kg)</label>
+              <input id="qty" type="number" min="1" />
+            </div>
+            <div>
+              <label for="contact">Contact (phone or email)</label>
+              <input id="contact" placeholder="e.g., +2519XXXXXXXX or email@example.com" />
+            </div>
+          </div>
+
+          <label for="list-price">Asking price (ETB per kg)</label>
+          <input id="list-price" type="number" min="0" step="0.1" placeholder="e.g., 20.0" />
+
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button id="postListing">Post Listing</button>
+            <button class="ghost small" id="clearListings">Clear Listings</button>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+
+          <strong>Active Listings</strong>
+          <div id="listingsArea" style="margin-top:10px;max-height:320px;overflow:auto"></div>
+        </div>
+      </div>
